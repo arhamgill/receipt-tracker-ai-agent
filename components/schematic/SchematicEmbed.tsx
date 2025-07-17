@@ -1,5 +1,8 @@
 "use client";
-import { SchematicEmbed as SchematicEmbedComponent } from "@schematichq/schematic-components";
+import {
+  SchematicEmbed as SchematicEmbedComponent,
+  EmbedProvider,
+} from "@schematichq/schematic-components";
 
 function SchematicEmbed({
   componentId,
@@ -9,10 +12,12 @@ function SchematicEmbed({
   accessToken: string;
 }) {
   return (
-    <SchematicEmbedComponent
-      accessToken={accessToken}
-      id={componentId}
-    ></SchematicEmbedComponent>
+    <EmbedProvider>
+      <SchematicEmbedComponent
+        accessToken={accessToken}
+        id={componentId}
+      ></SchematicEmbedComponent>
+    </EmbedProvider>
   );
 }
 
